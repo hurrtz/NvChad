@@ -41,27 +41,26 @@ M.nvimtree = {
 }
 
 M.mason = {
-	ensure_installed = {
-		-- lua stuff
-		"lua-language-server",
-		"stylua",
-
-		-- web dev stuff
-		"css-lsp",
-		"diagnostic-languageserver",
-		"dockerfile-language-server",
-		"eslint-lsp",
-		"graphql-language-service-cli",
-		"html-lsp",
-		"json-lsp",
-		"prettier",
-		"typescript-language-server",
-
-		-- shell
-		"shfmt",
-		"shellcheck",
-		"bash-language-server",
-	},
+  ensure_installed = {
+    -- LSP servers
+    "lua-language-server",
+    "typescript-language-server",
+    "html-lsp",
+    "css-lsp",
+    "json-lsp",
+    "eslint-lsp",
+    "bash-language-server",
+    "dockerfile-language-server",
+    "graphql-language-service-cli",
+    
+    -- Formatters
+    "stylua",
+    "prettier",
+    "shfmt",
+    
+    -- Linters/Diagnostics
+    "shellcheck",
+  },
 }
 
 return M

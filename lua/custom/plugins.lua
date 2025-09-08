@@ -1,26 +1,32 @@
 local overrides = require("custom.configs.overrides")
 
-return {{
+return {
+  {
     "neovim/nvim-lspconfig",
-    dependencies = {{
-        -- format & linting
-        "jose-elias-alvarez/null-ls.nvim",
-        config = function()
-            require("custom.configs.null-ls")
-        end
-    }},
-
     config = function()
-        require("plugins.configs.lspconfig")
-        require("custom.configs.lspconfig")
+      require("nvchad.configs.lspconfig").defaults()
+      require("custom.configs.lspconfig")
     end
-}, {
+  },
+  
+  {
+    "stevearc/conform.nvim",
+    event = "BufWritePre",
+    opts = require("custom.configs.conform"),
+  },
+  
+  {
     "nvim-tree/nvim-tree.lua",
     opts = overrides.nvimtree
-}, {
+  },
+  
+  {
     "nvim-treesitter/nvim-treesitter",
     opts = overrides.treesitter
-}, {
-    "williamboman/mason.nvim",
+  },
+  
+  {
+    "mason-org/mason.nvim",
     opts = overrides.mason
-}}
+  }
+}
